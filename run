@@ -1,0 +1,41 @@
+#!/bin/bash
+
+if [ $# -ne 2 ]
+then
+	echo "Usage: ./run chain-name L1_RPC_URL"
+	echo "1st arugment, chain-name: base or optimism"
+	echo "2nd argument L1_RPC_URL: example: https://eth-goerli.g.alchemy.com/v2/hhTXZSBtLsbNN-wXWpErThgYi9sNNKTP"
+	exit 1
+fi
+
+if ! [[ "$1" == "base" || "$1" == "optimism" ]]
+then
+	echo "Given chain name ${1} is invalid. Valid chain name is base or optimism"
+	exit 1
+fi
+
+cmd=`tmux ls`
+
+if [ $? -eq 127 ]
+then
+	echo "tmux is not installed. Please install and then run"
+	exit 1
+fi
+
+chain_id=""
+
+if [[ "$1" == "base" ]]
+then
+	chain_id=84531
+else
+	chain_id=420
+fi
+
+echo "Starting set-up of ${1} in tmux"
+
+dir=`dirname $0`
+
+tmux new-session -d -s set-up-l2 "cd $dir && python3 ./start_l2.py ${chain_id} ${2}"
+
+echo "The set-up of ${1} is running in tmux"
+echo "Use the command 'tmux a -t set-up-l2' to open tmux shell"
