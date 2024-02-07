@@ -31,8 +31,8 @@ def download_file(url, local_file_path):
 
 if len(sys.argv) != 3:
     print("Number of argument is 2")
-    print("1st argument: 84531/420 (84531 for base-goerli, 420 for op-goerli)")
-    print("2nd argument: L1_RPC_URL, example: https://eth-goerli.g.alchemy.com/v2/hhTXZSBtLsbNN-wXWpErThgYi9sNNKTP")
+    print("1st argument: 84532/11155420 (84532 for base-sepolia, 11155420 for op-sepolia)")
+    print("2nd argument: L1_RPC_URL, example: https://eth-sepolia.g.alchemy.com/v2/hhTXZSBtLsbNN-wXWpErThgYi9sNNKTP")
     sys.exit(1)
 
 
@@ -49,12 +49,12 @@ except:
     print("Argument to the script must be integer")
     sys.exit(1)
 
-if chain_id == 84531:
+if chain_id == 84532:
     DOWNLOAD_URL = BASE_URL
-elif chain_id == 420:
+elif chain_id == 11155420:
     DOWNLOAD_URL = OPTIMISM_URL
 else:
-    print("Unknown chain id " + str(chain_id) + ". Valid chain ids are 84531 for base-goerli, 420 for op-goerli.")
+    print("Unknown chain id " + str(chain_id) + ". Valid chain ids are 84532 for base-sepolia, 11155420 for op-sepolia.")
 
 DOWNLOAD_URL = subprocess.check_output(['curl', DOWNLOAD_URL]).decode().strip()
 
@@ -101,12 +101,12 @@ node_script = ""
 geth_terminal_name = ""
 node_terminal_name = ""
 
-if chain_id == 84531:
+if chain_id == 84532:
     geth_script = "run-geth-base.sh"
     node_script = "run-node-base.sh"
     geth_terminal_name = "base-geth"
     node_terminal_name = "base-node"
-elif chain_id == 420:
+elif chain_id == 11155420:
     geth_script = "run-geth-optimism.sh"
     node_script = "run-node-optimism.sh"
     geth_terminal_name = "optimism-geth"

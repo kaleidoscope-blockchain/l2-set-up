@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-SEQUENCER_URL=https://goerli-sequencer.optimism.io/
+SEQUENCER_URL=https://sepolia-sequencer.optimism.io/
 
 
 sudo ./build/bin/geth \
@@ -27,4 +27,4 @@ sudo ./build/bin/geth \
   --gcmode archive \
   --maxpeers=0 \
   --rollup.halt=major \
-  --op-network=op-goerli
+  --op-network=op-sepolia

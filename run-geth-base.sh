@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-SEQUENCER_URL=https://goerli-sequencer.base.org
+SEQUENCER_URL=https://sepolia-sequencer.base.org
 
 sudo ./build/bin/geth \
   --ws \
@@ -26,4 +26,4 @@ sudo ./build/bin/geth \
   --syncmode=full \
   --gcmode=archive \
   --maxpeers=100 \
-  --op-network=base-goerli
+  --op-network=base-sepolia

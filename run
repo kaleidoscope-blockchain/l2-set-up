@@ -4,7 +4,7 @@ if [ $# -ne 2 ]
 then
 	echo "Usage: ./run chain-name L1_RPC_URL"
 	echo "1st arugment, chain-name: base or optimism"
-	echo "2nd argument L1_RPC_URL: example: https://eth-goerli.g.alchemy.com/v2/hhTXZSBtLsbNN-wXWpErThgYi9sNNKTP"
+	echo "2nd argument L1_RPC_URL: example: https://eth-sepolia.g.alchemy.com/v2/hhTXZSBtLsbNN-wXWpErThgYi9sNNKTP"
 	exit 1
 fi
 
@@ -26,9 +26,9 @@ chain_id=""
 
 if [[ "$1" == "base" ]]
 then
-	chain_id=84531
+	chain_id=84532
 else
-	chain_id=420
+	chain_id=11155420
 fi
 
 echo "Starting set-up of ${1} in tmux"

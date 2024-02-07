@@ -2,7 +2,7 @@
 
 sudo bin/op-node --l1=<L1_RPC_URL> \
         --l2=ws://localhost:8551 \
-        --network=op-goerli \
+        --network=op-sepolia \
         --rollup.halt=major \
         --rollup.load-protocol-versions=true \
         --rpc.addr=0.0.0.0 \

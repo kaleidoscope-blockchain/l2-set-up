@@ -6,6 +6,6 @@ sudo bin/op-node \
   --rpc.addr=0.0.0.0 \
   --rpc.port=9545 \
   --l2.jwt-secret=./jwt.txt \
-  --network=base-goerli \
+  --network=base-sepolia \
   --rollup.halt=major \
   --rollup.load-protocol-versions=true
